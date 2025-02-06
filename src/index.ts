@@ -17,3 +17,14 @@ export type {
 } from './core/types';
 
 export type { OnchainKitProviderReact } from './types';
+
+export { MiniKitProvider } from './MiniKitProvider';
+export type { MiniKitProviderReact } from './MiniKitProvider';
+export { useMiniKit } from './minikit/hooks/useMiniKit';
+export { useOpenUrl } from './minikit/hooks/useOpenUrl';
+export { FrameMetaTag } from './minikit/components/FrameMetaTag';
+export { useAuthenticate } from './minikit/hooks/useAuthenticate';
+export { useViewProfile } from './minikit/hooks/useViewProfile';
+export { useAddFrame } from './minikit/hooks/useAddFrame';
+export { usePrimaryButton } from './minikit/hooks/usePrimaryButton';
+export { useNotification } from './minikit/hooks/useNotification';

@@ -1,0 +1,15 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjgxODAyNiwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDU4YjU1MTNjMzk5OTYzMjU0MjMzMmU0ZTJlRDAyOThFQzFmRjE4MzEifQ",
+    "payload": "eyJkb21haW4iOiI4MGI2LTI2MDAtMWYxOC0yNGM5LTYxMDUtNS0wLTQtNzA2Lm5ncm9rLWZyZWUuYXBwIn0",
+    "signature": "MHhmOGQ1YzQyMmU3ZTZlMWNhMzU1ZmNmN2ZjYzFmYjMyZWRhZmEyNWU1NjJiMzlhYzE4OWNlMmM5ODU3Y2JjZWViNzlkZTk2ZjhiNTc5NzZjMDM2NzM4Y2UwYjhhOGQxZmMyZDFhYzA2NTdiZTU5N2VhZjFhZDE1ODBmMGQyYjJhODFi"
+  },
+  "frame": {
+    "version": "0.0.0",
+    "name": "MiniKit",
+    "iconUrl": "https://onchainkit.xyz/favicon/48x48.png?v4-19-24",
+    "splashImageUrl": "https://onchainkit.xyz/favicon/48x48.png?v4-19-24",
+    "splashBackgroundColor": "#000000",
+    "homeUrl": "https://80b6-2600-1f18-24c9-6105-5-0-4-706.ngrok-free.app/minikit"
+  }
+}
