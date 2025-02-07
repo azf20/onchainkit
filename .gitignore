@@ -2,7 +2,6 @@
 
 # compiled output
 dist
-esm
 tmp
 /out-tsc
 site/docs/pages/src/

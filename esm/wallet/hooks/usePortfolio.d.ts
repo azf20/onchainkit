@@ -1,0 +1,12 @@
+import type { Portfolio } from '../../api/types';
+import { RequestContext } from '../../core/network/constants';
+import { type UseQueryResult } from '@tanstack/react-query';
+import type { Address } from 'viem';
+/**
+ * Retrieves the portfolio for the provided address
+ * portfolio includes the address, the balance of the address in USD, and the tokens in the address
+ */
+export declare function usePortfolio({ address }: {
+    address: Address | undefined | null;
+}, _context?: RequestContext): UseQueryResult<Portfolio>;
+//# sourceMappingURL=usePortfolio.d.ts.map

@@ -1,0 +1,78 @@
+'use client';
+import { cn, text, color } from '../../styles/theme.js';
+import '../../token/index.js';
+import { useWalletAdvancedContext } from './WalletAdvancedProvider.js';
+import { jsx, jsxs } from 'react/jsx-runtime';
+import { TokenImage } from '../../token/components/TokenImage.js';
+function WalletAdvancedTokenHoldings({
+  classNames
+}) {
+  const _useWalletAdvancedCon = useWalletAdvancedContext(),
+    tokenBalances = _useWalletAdvancedCon.tokenBalances,
+    isFetchingPortfolioData = _useWalletAdvancedCon.isFetchingPortfolioData,
+    animations = _useWalletAdvancedCon.animations;
+  if (isFetchingPortfolioData || !tokenBalances || tokenBalances.length === 0) {
+    return /*#__PURE__*/jsx("div", {
+      "data-testid": "ockWalletAdvanced_LoadingPlaceholder",
+      className: "my-2 h-44 w-80"
+    }); // Prevent layout shift
+  }
+  return /*#__PURE__*/jsx("div", {
+    className: cn('flex flex-col items-center gap-4', 'my-2 h-44 max-h-44 w-full', 'scrollbar-hidden overflow-y-auto', animations.content, classNames?.container),
+    "data-testid": "ockWalletAdvanced_TokenHoldings",
+    children: tokenBalances.map((tokenBalance, index) => /*#__PURE__*/jsx(TokenDetails, {
+      token: {
+        address: tokenBalance.address,
+        chainId: tokenBalance.chainId,
+        decimals: tokenBalance.decimals,
+        image: tokenBalance.image,
+        name: tokenBalance.name,
+        symbol: tokenBalance.symbol
+      },
+      balance: Number(tokenBalance.cryptoBalance) / 10 ** Number(tokenBalance.decimals),
+      valueInFiat: Number(tokenBalance.fiatBalance),
+      classNames: classNames?.tokenDetails
+    }, `${tokenBalance.address}-${index}`))
+  });
+}
+function TokenDetails({
+  token,
+  balance,
+  valueInFiat,
+  classNames,
+  tokenImageSize = 32
+}) {
+  const formattedBalance = new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 5
+  }).format(balance);
+  const formattedValueInFiat = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(valueInFiat);
+  return /*#__PURE__*/jsxs("div", {
+    className: cn('flex w-full flex-row items-center justify-between', classNames?.container),
+    children: [/*#__PURE__*/jsxs("div", {
+      "data-testid": "ockWalletAdvanced_TokenDetails_TokenImage",
+      className: cn('flex flex-row items-center gap-2', classNames?.tokenImage),
+      children: [/*#__PURE__*/jsx(TokenImage, {
+        token: token,
+        size: tokenImageSize
+      }), /*#__PURE__*/jsxs("div", {
+        className: "flex flex-col",
+        children: [/*#__PURE__*/jsx("span", {
+          className: cn(text.label1, color.foreground, 'max-w-52 overflow-hidden text-ellipsis whitespace-nowrap text-left', classNames?.tokenName),
+          children: token.name?.trim()
+        }), /*#__PURE__*/jsx("span", {
+          className: cn(text.legal, color.foregroundMuted, classNames?.tokenBalance),
+          children: `${formattedBalance} ${token.symbol}`
+        })]
+      })]
+    }), /*#__PURE__*/jsx("span", {
+      className: cn(text.label2, color.foregroundMuted, classNames?.fiatValue),
+      children: formattedValueInFiat
+    })]
+  });
+}
+export { WalletAdvancedTokenHoldings };
+//# sourceMappingURL=WalletAdvancedTokenHoldings.js.map

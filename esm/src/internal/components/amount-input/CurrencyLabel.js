@@ -1,0 +1,16 @@
+import { cn, text, color } from '../../../styles/theme.js';
+import { forwardRef } from 'react';
+import { jsx } from 'react/jsx-runtime';
+const CurrencyLabel = /*#__PURE__*/forwardRef(({
+  label,
+  className
+}, ref) => {
+  return /*#__PURE__*/jsx("span", {
+    ref: ref,
+    className: cn(text.body, color.disabled, 'flex items-center justify-center bg-transparent', 'text-6xl leading-none outline-none', className),
+    "data-testid": "ockCurrencySpan",
+    children: label
+  });
+});
+export { CurrencyLabel };
+//# sourceMappingURL=CurrencyLabel.js.map

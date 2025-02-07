@@ -1,0 +1,3 @@
+import type { SendAmountInputProps } from '../types';
+export declare function SendAmountInput({ selectedToken, cryptoAmount, handleCryptoAmountChange, fiatAmount, handleFiatAmountChange, selectedInputType, setSelectedInputType, exchangeRate, exchangeRateLoading, className, textClassName, }: SendAmountInputProps): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=SendAmountInput.d.ts.map
