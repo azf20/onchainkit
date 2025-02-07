@@ -101,7 +101,9 @@
   "files": [
     "esm/**/*",
     "src/",
-    "src/**/*"
+    "src/**/*",
+    "styles.css",
+    "tailwind.css"
   ],
   "main": "./esm/index.js",
   "types": "./esm/index.d.ts",
